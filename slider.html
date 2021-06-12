@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        display: grid;
+        place-items: center;
+        height: 100vh;
+        width:100vw;
+        background-color: bisque;
+    }
+    .box{
+        height:50px;
+        width: 310px;
+        background-color: rgb(142, 170, 223);
+        display: inline-flex;
+        justify-content: space-between;
+        align-items:center;
+        padding: 0 20px;
+        position: relative;
+    }
+    #slider{
+        appearance: none;
+        height: 10px;
+        border-radius: 30px;
+        width:265px;
+        z-index: 15;
+        margin-right: 10px;
+        /* position: relative; */
+        opacity: .7;
+    }
+    #slider:hover{
+        opacity: 1;
+    }
+      #slider::-webkit-slider-thumb{
+          appearance: none;
+          height: 20px;
+          width: 10px;
+          z-index: 10000;
+          background:hsl(174, 86%, 45%) url(./images/icon-slider.svg) no-repeat center;
+           transition: all 300ms ease;
+      }
+    #slider:hover::-webkit-slider-thumb{
+        height: 24px;
+        width: 24px;
+        border-radius: 50% 50% 0 50% ;
+        transform: rotate(45deg);
+        z-index: 1000;
+        cursor: pointer;
+        appearance: none;
+        position: relative;
+        top:-25px;
+        cursor:pointer;      
+        border:bisque 2px solid;
+        border-top:rgb(142, 170, 223) 2px solid;
+        border-left:rgb(142, 170, 223) 2px solid;
+        
+     }
+    
+   .lower{
+       content:"";
+       position: absolute;
+       left:22px;
+       height: 10px;
+       border-radius: 30px 0 0 30px;
+        z-index: 18;
+       background-color: rgb(203, 227, 228);
+   }
+   
+   
+</style>
+<body>
+    <div class="box">
+        <input type="range" min="0" max="265" value="71" id="slider">
+        <div class="lower"></div>
+        <span></span>
+       
+    </div>
+</body>
+<script>
+    let slidervalue = document.querySelector("#slider");
+    let rate = document.querySelector("span")
+    let lowercolor=document.querySelector(".lower");
+
+    // intial valule for filled color and value at slider
+    lowercolor.style.width=slidervalue.value+"px";
+    rate.innerHTML=slidervalue.value+"K";
+
+    // to update the filled color and value as slider slides
+   slidervalue.oninput=function(){
+       rate.innerHTML=this.value + "k";
+       lowercolor.style.width = this.value + "px";
+   }
+</script>
+</html>

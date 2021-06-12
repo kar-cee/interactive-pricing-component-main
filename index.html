@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Interactive pricing component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+ <link rel="stylesheet" href="style.css">
+ <!-- font link -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- <div class="wrapper"> -->
+  <div class="title">
+ <div class="heading">Simple, traffic-based pricing</div> 
+ <p>Sign-up for our 30-day trial. <br> No credit card required.</p> 
+</div>
+
+<div class="content">
+
+  <div class="upper">
+ <div class="pageview">
+   <div class="one">100K Pageviews</div>
+   <div class="two"><span>/monthly</span></div>
+ </div> 
+ <div class="sliderbox">
+   <input type="range" min="0" max="260" value="16" class="slider" id="myRange">
+ <div class="filledcolor"></div>
+ <div class="rateholder">
+   <div class="rate"> </div>
+<span>/monthly</span>
+</div>
+</div>
+<div class="plans">
+  <div class="monthly">Monthly Billing
+
+  </div>
+  <div class="toggle">
+    <div class="swipe"></div>
+  </div>
+  <div class="yearly">Yearly Billing <span class="discount">25%</span> </div> 
+  </div>
+</div>
+<div class="lower">
+  <ul>
+ <li>  Unlimited websites</li>
+ <li> 100% data ownership</li>
+ <li>       Email reports</li>
+ <button class="trial">Start my trial</button>  
+</ul>
+  </div>
+  </div>
+</div>
+</body>
+<script>
+  let slider=document.querySelector(".slider");
+  let filledcolor=document.querySelector(".filledcolor");
+  let rate=document.querySelector(".rate");
+  let span=document.querySelector("span");
+  let two=document.querySelector(".two");
+  rate.innerHTML="$"+slider.value+".00";
+  filledcolor.style.width=slider.value+"px";
+
+  slider.oninput=function(){
+       rate.innerHTML = "$" + slider.value + " .00";
+      filledcolor.style.width = slider.value + "px";
+  }
+ if(window.innerWidth>600){
+   rate.style.display="none";
+   span.style.display="none";
+   two.innerHTML= rate.innerHTML = "$" + slider.value + ".00";
+   slider.oninput = function () {
+     two.innerHTML = "$" + slider.value + " .00/monthly";
+     filledcolor.style.width = slider.value + "px";
+   }
+ }else{
+   two.style.display="none"
+   rate.style.display = "inline-block";
+   span.style.display = "inline-block";
+     slider.oninput = function () {
+     rate.innerHTML = "$" + slider.value + " .00";
+     filledcolor.style.width = slider.value + "px";
+   }
+ }
+
+
+</script>
+</html>
