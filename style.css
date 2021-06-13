@@ -172,3 +172,45 @@ color: hsl(226, 100%, 87%);
 cursor: pointer;
 
 }
+
+@media screen and (max-width:600px) {
+    section{
+        width: 350px;
+        min-height: 400px;
+    }
+    .upper-section{
+           justify-content: space-between;
+           flex-grow:.65 ;
+    }
+    .traffic-based{
+     flex-direction: column;
+     position: relative;
+     margin-top: 25px;
+    }
+    .sliderbox{
+        margin-top: -30px;
+    }
+    
+    .rate{
+        position: absolute;
+        margin: 20px 0;
+        top:80px;
+    }
+    .plans{
+        align-items: center;
+        font-size: 12px;
+        margin:0;
+    }
+    .monthly,.yearly,.discount{
+    font-size: 12px;
+    margin:0 7px;
+}
+
+.lower-section{
+    flex-direction: column;
+    margin: 20px 0;
+}
+ul{
+    text-align: center;
+}
+}
