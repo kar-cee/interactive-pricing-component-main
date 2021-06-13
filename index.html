@@ -16,78 +16,64 @@
 </head>
 <body>
   <!-- <div class="wrapper"> -->
-  <div class="title">
+ <header>
  <div class="heading">Simple, traffic-based pricing</div> 
- <p>Sign-up for our 30-day trial. <br> No credit card required.</p> 
-</div>
+ <p>Sign-up for our 30-day trial. No credit card required.</p> 
 
-<div class="content">
+</header>
 
-  <div class="upper">
- <div class="pageview">
-   <div class="one">100K Pageviews</div>
-   <div class="two"><span>/monthly</span></div>
+<section>
+  <div class="upper-section">
+ <div class="traffic-based">
+   <div class="pageview">100K Pageviews</div>
+   <div class="rate">
+     <span class="price"></span>
+     <span>/monthly</span>
+    </div>
  </div> 
  <div class="sliderbox">
-   <input type="range" min="0" max="260" value="16" class="slider" id="myRange">
+   <input type="range" min="0" max="138" value="16" class="slider" id="myRange">
  <div class="filledcolor"></div>
- <div class="rateholder">
-   <div class="rate"> </div>
-<span>/monthly</span>
-</div>
 </div>
 <div class="plans">
   <div class="monthly">Monthly Billing
-
   </div>
-  <div class="toggle">
+  <input type="checkbox" name="" id="" class="checkbox">
     <div class="swipe"></div>
+  
+  <div class="yearly">Yearly Billing <span class="discount">-25%</span> </div> 
   </div>
-  <div class="yearly">Yearly Billing <span class="discount">25%</span> </div> 
   </div>
-</div>
-<div class="lower">
+  
+<div class="lower-section">
   <ul>
  <li>  Unlimited websites</li>
  <li> 100% data ownership</li>
  <li>       Email reports</li>
- <button class="trial">Start my trial</button>  
 </ul>
+ <button class="trial">Start my trial</button>  
+
   </div>
-  </div>
-</div>
+</section>
 </body>
 <script>
   let slider=document.querySelector(".slider");
   let filledcolor=document.querySelector(".filledcolor");
-  let rate=document.querySelector(".rate");
-  let span=document.querySelector("span");
-  let two=document.querySelector(".two");
-  rate.innerHTML="$"+slider.value+".00";
-  filledcolor.style.width=slider.value+"px";
+  let checkbox=document.querySelector(".checkbox");
+  let price=document.querySelector(".price");
+
+  price.innerHTML="$"+slider.value+".00";
+  filledcolor.style.width=slider.value*2+"px";
 
   slider.oninput=function(){
-       rate.innerHTML = "$" + slider.value + " .00";
-      filledcolor.style.width = slider.value + "px";
+    if(checkbox.checked==true){
+       price.innerHTML = "$" + Math.floor(slider.value*3/4) + " .00";
+      filledcolor.style.width = slider.value*2 + "px";
+    }else{
+       price.innerHTML = "$" + slider.value + " .00";
+      filledcolor.style.width = slider.value * 2 + "px";
+    }
+     
   }
- if(window.innerWidth>600){
-   rate.style.display="none";
-   span.style.display="none";
-   two.innerHTML= rate.innerHTML = "$" + slider.value + ".00";
-   slider.oninput = function () {
-     two.innerHTML = "$" + slider.value + " .00/monthly";
-     filledcolor.style.width = slider.value + "px";
-   }
- }else{
-   two.style.display="none"
-   rate.style.display = "inline-block";
-   span.style.display = "inline-block";
-     slider.oninput = function () {
-     rate.innerHTML = "$" + slider.value + " .00";
-     filledcolor.style.width = slider.value + "px";
-   }
- }
-
-
 </script>
 </html>
