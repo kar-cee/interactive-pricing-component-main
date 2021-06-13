@@ -1,0 +1,174 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Manrope', sans-serif;
+    
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background:hsl(230, 100%, 99%) url(./images/bg-pattern.svg) no-repeat;
+    color: hsl(225, 20%, 60%);
+}
+header{
+    text-align: center;
+    padding: 50px;
+    margin: 30px;
+    background: url(./images/pattern-circles.svg) no-repeat center;
+}
+.heading{
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: hsl(224, 43%, 19%)
+}
+p{
+    font-size: 15px;
+    font-weight: 600;
+    color: hsl(225, 20%, 60%);
+}
+section{
+    width: 450px;
+    height: 350px;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: space-around;
+background-color: hsl(230, 100%, 99%);
+border-radius: 10px;
+box-shadow: 0 10px 20px rgba(0, 0,0,.15);
+}
+.upper-section{
+display: flex;
+position: relative;
+flex-direction: column;
+justify-content: space-around;
+align-items: center;
+width: 90%;
+}
+.traffic-based{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin:20px 10px;
+    font-weight: 800;
+    color: hsl(225, 20%, 60%);
+}
+.price{
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: hsl(224, 43%, 19%);
+    display: inline-block;
+    width: 90px;
+    text-align: right;
+}
+.sliderbox{
+    position: relative;
+    margin: 0 0 35px  0 ;
+}
+.slider{
+    appearance:none;
+    position: relative;
+    background-color: hsl(224, 65%, 95%);
+    border-radius: 30px;
+    width: 300px;
+    height: 10px;
+}
+.slider::-webkit-slider-thumb{
+    appearance: none;
+    background: hsl(174, 86%, 45%) url(./images/icon-slider.svg) no-repeat center;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 6px 15px 2px hsl(174, 77%, 80%);
+}
+.filledcolor{
+    position: absolute;
+    height: 10px;
+    width: 40px;
+    top:7px;
+    background-color:hsl(174, 77%, 80%);
+    border-radius: 30px 0 0 30px;
+    
+}
+.plans{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-bottom:-20px; */
+    width: 110%;
+}
+.monthly,.yearly,.discount{
+    font-size: 15px;
+    margin:0 10px;
+}
+input[type=checkbox]{
+    appearance: none;
+    position: relative;
+    height: 20px;
+    width: 40px;
+    background-color: hsl(223, 50%, 87%);
+    border-radius: 30px;
+}
+input[type=checkbox]::before{
+    background-color:white ;
+    content: "";
+    position: absolute;
+    height:16px;
+    width: 16px;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    cursor: pointer;
+    transition: .2s;
+}
+input:checked[type=checkbox]::before{
+    transform: translateX(20px);
+}
+.discount{
+    padding: 0 8px;
+    background-color: hsl(14, 92%, 95%);
+    border-radius: 30px;
+    color:  hsl(15, 100%, 70%);
+}
+.upper-section::before{
+    content: "";
+    position: absolute;
+    bottom: -40px;
+    height: 1px;
+    width: 112%;
+    background-color: hsl(224, 65%, 95%);
+}
+.lower-section{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 400px;
+}
+ul{
+    list-style-image: url(./images/icon-check.svg);
+    font-size: 15px;
+    
+}
+li{
+    margin: 10px 30px;
+}
+button{
+    height:30px;
+    width: 120px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    background-color: hsl(227, 35%, 25%);
+    font-size: 12px;
+color: hsl(226, 100%, 87%);
+cursor: pointer;
+
+}
