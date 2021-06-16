@@ -15,7 +15,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- <div class="wrapper"> -->
  <header>
  <div class="heading">Simple, traffic-based pricing</div> 
  <p>Sign-up for our 30-day trial. No credit card required.</p> 
@@ -28,7 +27,7 @@
    <div class="pageview">100K Pageviews</div>
    <div class="rate">
      <span class="price"></span>
-     <span>/monthly</span>
+     <span class="month">/monthly</span>
     </div>
  </div> 
  <div class="sliderbox">
@@ -74,6 +73,15 @@
       filledcolor.style.width = slider.value * 2 + "px";
     }
      
+  }
+  checkbox.oninput=function(){
+    if (checkbox.checked == true) {
+      price.innerHTML = "$" + Math.floor(slider.value * 3 / 4) + " .00";
+      filledcolor.style.width = slider.value * 2 + "px";
+    } else {
+      price.innerHTML = "$" + slider.value + " .00";
+      filledcolor.style.width = slider.value * 2 + "px";
+    }
   }
 </script>
 </html>
