@@ -204,6 +204,7 @@ cursor: pointer;
     body{
         width:100vw;
         min-width:375px;
+        justify-content: space-evenly;
     }
      header{
         max-width: 370px;
